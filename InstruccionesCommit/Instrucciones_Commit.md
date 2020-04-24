@@ -4,7 +4,7 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Vistas__
+### Commit | __Blade Motor de plantillas de Laravel__
 <!-- end commit name -->
 ===
 <!-- official documentation -->
@@ -17,20 +17,21 @@
 
 <!-- commit instructions -->
 #### Instrucciones Commit
-1. Edición del controlador `app\Http\Controllers\TrainerController.php`
-   - Edición de la función `create()`
-2. Creación del directorio `resources\views\trainers`
-   - Creación y edición de la vista `resources\views\trainers\create.blade.php`
+1. Creación del directorio `resources\views\layouts`
+   - Creación y edición de la vista `resources\views\layouts\app.blade.php`
+2. Edición de la vista `resources\views\trainers\create.blade.php`
 <!-- end commit instructions -->
 ===
 <!-- notes -->
 #### Notas:
 - [Documentación oficial | `Laravel 5.6`](https://laravel.com/docs/5.6)
+- Blade permite reutilizar HTML
+- Blade incluye muchas directivas que simplifican el uso de PHP en las vistas
 <!-- end notes -->
 ===
 <!-- information -->
 #### Información:
-- Más información en `app\Http\Controllers\TrainerController.php`
+- Más información en `resources\views\layouts\app.blade.php`
 
 - Más información en `resources\views\trainers\create.blade.php`
 <!-- end information -->
