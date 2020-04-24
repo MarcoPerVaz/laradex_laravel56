@@ -4,37 +4,33 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Resource Controller__
+### Commit | __Vistas__
 <!-- end commit name -->
 ===
 <!-- official documentation -->
-[Documentación | `Routing`](https://laravel.com/docs/5.6/routing)
+[Documentación | `Blade Templates`](https://laravel.com/docs/5.6/blade)
 
-[Documentación | `Controllers`](https://laravel.com/docs/5.6/controllers)
+[Documentación | `Defining A Layout`](https://laravel.com/docs/5.6/blade#defining-a-layout)
 
-[Documentación | `Resource Controllers`](https://laravel.com/docs/5.6/controllers#resource-controllers)
+[Documentación | `Extending A Layout`](https://laravel.com/docs/5.6/blade#extending-a-layout)
 <!-- end official documentation -->
 
 <!-- commit instructions -->
 #### Instrucciones Commit
-1. Creación y edición del controlador de tipo recurso `app\Http\Controllers\TrainerController.php`
-   > php artisan make:controller TrainerController --resource
-
-   - Edición de la función `index()`
-2. Edición del archivo de rutas `routes\web.php`
-3. Eliminación del controlador `app\Http\Controllers\PruebaController.php`
+1. Edición del controlador `app\Http\Controllers\TrainerController.php`
+   - Edición de la función `create()`
+2. Creación del directorio `resources\views\trainers`
+   - Creación y edición de la vista `resources\views\trainers\create.blade.php`
 <!-- end commit instructions -->
 ===
 <!-- notes -->
 #### Notas:
 - [Documentación oficial | `Laravel 5.6`](https://laravel.com/docs/5.6)
-- php artisan make:controller NameController --resource
-  - Crea el controlador con 7 funciones (index, create, store, show, edit, update y destroy)
 <!-- end notes -->
 ===
 <!-- information -->
 #### Información:
 - Más información en `app\Http\Controllers\TrainerController.php`
 
-- Más información en `routes\web.php`
+- Más información en `resources\views\trainers\create.blade.php`
 <!-- end information -->

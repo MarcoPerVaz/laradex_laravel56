@@ -22,10 +22,11 @@ class TrainerController extends Controller
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
+     * Función para mostrar el formulario para crear un trainer
      */
     public function create()
     {
-        //
+        return view('trainers.create');
     }
 
     /**
