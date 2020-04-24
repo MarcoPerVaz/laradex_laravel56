@@ -11,19 +11,15 @@ Route::get('/', function () {
 });
 
 /* 
-    | -------------------------------------------------------------------------------------------------------------------------------------
-    | *Ruta sin parámetro que apunta a '/prueba' y asociada a la función prueba() del controlador app\Http\Controllers\PruebaController.php
-    | -------------------------------------------------------------------------------------------------------------------------------------
-*/
-Route::get('prueba', 'PruebaController@prueba');
-
-/* 
     | --------------------------------------------------------------------------------------------------------
-    | *Ruta con parámetro que apunta a '/prueba{parámetro}' y asociada a la función pruebaParametro($name) del 
-    |  controlador app\Http\Controllers\PruebaController.php
+    | *Ruta que apunta a '/trainers' asociada al controlador app\Http\Controllers\TrainerController.php
+    | *Ruta Resource que contiene 7 rutas (index, create, store, show, edit, update y destroy)
+    |   *Laravel automáticamente le asigna nombres a las rutas
+    |       *Para ver las rutas del proyecto 
+    |           *php artisan router:list
     | --------------------------------------------------------------------------------------------------------
 */
-Route::get('prueba/{name}', 'PruebaController@pruebaParametro');
+Route::resource('trainers', 'TrainerController');
 
 
 /* Notas:
@@ -31,7 +27,6 @@ Route::get('prueba/{name}', 'PruebaController@pruebaParametro');
     | *get() es una petición Http para recuperar datos
     |   *Más información en https://developer.mozilla.org/es/docs/Web/HTTP/Methods
     | *Laravel lee las rutas de arriba hacía abajo, por lo que si existen rutas iguales se tomará la de abajo
-    | *El parámetro de la función debe llamarse igual que la variable pasada como parámetro en la función
-    |   *Ejemplo: Ruta '{name}' = Función ($name)
+    | *resource() Significa que es una ruta que contiene 7 rutas (index, create, store, show, edit, update y destroy)
     | -------------------------------------------------------------------------------------------------------
 */
