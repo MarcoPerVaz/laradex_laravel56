@@ -4,34 +4,33 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Blade Motor de plantillas de Laravel__
+### Commit | __Peticiones Http__
 <!-- end commit name -->
 ===
 <!-- official documentation -->
-[Documentación | `Blade Templates`](https://laravel.com/docs/5.6/blade)
+[Documentación | `CSRF Protection`](https://laravel.com/docs/5.6/csrf)
 
-[Documentación | `Defining A Layout`](https://laravel.com/docs/5.6/blade#defining-a-layout)
-
-[Documentación | `Extending A Layout`](https://laravel.com/docs/5.6/blade#extending-a-layout)
+[Documentación | `Métodos de petición HTTP`](https://developer.mozilla.org/es/docs/Web/HTTP/Methods)
 <!-- end official documentation -->
 
 <!-- commit instructions -->
 #### Instrucciones Commit
-1. Creación del directorio `resources\views\layouts`
-   - Creación y edición de la vista `resources\views\layouts\app.blade.php`
-2. Edición de la vista `resources\views\trainers\create.blade.php`
+1. Edición de la vista `resources\views\trainers\create.blade.php`
+2. Edición del controlador `app\Http\Controllers\TrainerController.php`
+   - Edición de la función `store(Request $request)`
 <!-- end commit instructions -->
 ===
 <!-- notes -->
 #### Notas:
 - [Documentación oficial | `Laravel 5.6`](https://laravel.com/docs/5.6)
-- Blade permite reutilizar HTML
-- Blade incluye muchas directivas que simplifican el uso de PHP en las vistas
+- Laravel protege contra ataques csrf (cross site request forgery)
+  - Más información en [CSRF Protection](https://laravel.com/docs/5.6/csrf)
+- [Métodos Http](https://developer.mozilla.org/es/docs/Web/HTTP/Methods)
 <!-- end notes -->
 ===
 <!-- information -->
 #### Información:
-- Más información en `resources\views\layouts\app.blade.php`
-
 - Más información en `resources\views\trainers\create.blade.php`
+
+- Más información en `app\Http\Controllers\TrainerController.php`
 <!-- end information -->
