@@ -2,6 +2,7 @@
 
 namespace laradex\Http\Controllers;
 
+use laradex\Trainer;
 use Illuminate\Http\Request;
 
 class TrainerController extends Controller
@@ -39,19 +40,19 @@ class TrainerController extends Controller
     public function store(Request $request)
     {
         /* 
-            | -----------------------------------------------------------------------------------------------------------
-            | *return $request->all(); Devuelve los valores de todos los elementos HTML que tengan la propiedad name
-            | *return $request->input('_token'); Devuelve el valor del elemento HTML que tenga la propiedad name="_token"
-            |   *<input type="hidden" name="_token" value="paRbVXVLfwc3S2tO9JCSLEyKMmMupNtXDPc9AWw7">
-            |       *Este elemento input es importante porque Laravel lo usa para reconocer la aplicación
-            |   *Se puede obtener el valor de cualquier elemento HTML que tenga la propiedad name
-            | *return $request->input('name'); Devuelve el valor del elemento HTML que tenga la propiedad name="name"
-            |   *<input class="form-control" type="text" name="name">
-            | -----------------------------------------------------------------------------------------------------------
+            | -------------------------------------------------------------------------------------------------------------------------
+            | *No olvidar importar el modelo use laradex\Trainer;
+            | -------------------------------------------------------------------------------------------------------------------------
+            | *new Trainer(); Es una nueva instancia del modelo
+            | *$trainer->name = $request->input('name'); Lo que venga del elemento input HTML se guarda en el modelo cuyo campo es name
+            | *$trainer->save(); Guarda el trainer
+            | *return 'Saved'; Devuelve un texto
+            | -------------------------------------------------------------------------------------------------------------------------
         */
-        // return $request->all();
-        // return $request->input('_token');
-        return $request->input('name');
+        $trainer = new Trainer();
+        $trainer->name = $request->input('name');
+        $trainer->save();
+        return 'Saved';
     }
 
     /**
