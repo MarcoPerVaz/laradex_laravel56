@@ -13,10 +13,22 @@ class TrainerController extends Controller
      * @return \Illuminate\Http\Response
      * Función usada para mostrar los trainers de la base de datos
      * Función que retorna un texto
+     * Se obtienen todos los trainers usando Eloquent
+     * all() es una colección de Laravel y todos los métodos disponibles para colecciones
+     *  Más información en https://laravel.com/docs/5.6/collections#available-methods
      */
     public function index()
     {
-        return 'Estoy dentro prueba() en PruebaController';
+        /* 
+            | -----------------------------------------------------------------------------------------------------------------------------------------------
+            | *Trainer::all(); Obtiene todos los registros del modelo Trainer(tabla trainers)
+            | *return view('trainers.index', compact('trainers')); Devuelve la vista resources\views\trainers\index.blade.php y le pasa la variable $trainers
+            | *Usando la función compact() se le pueden pasar variables a la vista
+            | -----------------------------------------------------------------------------------------------------------------------------------------------
+        */
+        $trainers = Trainer::all(); 
+
+        return view('trainers.index', compact('trainers'));
     }
 
     /**

@@ -12,6 +12,11 @@
 </head>
 
 <body>
+  {{-- menu --}}
+    <nav class="navbar navbar-dark bg-primary">
+      <a href="Laradex" class="navbar-brand">Laradex</a>
+    </nav>
+  {{-- end menu --}}
   <div class="container">
     @yield('content')
   </div>
@@ -28,5 +33,7 @@
       | *La directiva @yield('title') sirve para enlazar subvistas que tengan la directiva section('title') con el mismo nombre
       |   *Dónde ('title') es el nombre que se le asigna para identificar y poderlo referenciar
       |   *El contenido de section('title') se incluirá en yield('title')
+      | *Se usa la librería Bootstrap 4.1.3
+      |   *Más información en https://getbootstrap.com/docs/4.1/getting-started/introduction/
       | -----------------------------------------------------------------------------------------------------------------------
 --}}
