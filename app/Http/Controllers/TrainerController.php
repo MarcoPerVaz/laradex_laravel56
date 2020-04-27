@@ -52,17 +52,40 @@ class TrainerController extends Controller
     public function store(Request $request)
     {
         /* 
-            | -------------------------------------------------------------------------------------------------------------------------
+            | ---------------------------------------------------
             | *No olvidar importar el modelo use laradex\Trainer;
+            | ---------------------------------------------------
+        */
+
+        /* 
+            |----------------
+            | *Comprueba si se recibe una imagen desde la vista 
+            | *$file = $request->file('avatar'); Obtiene el valor del elemento HTML con la propiedad name="avatar" y lo guarda en la variable $file
+            | *$name = time() . $file->getClientOriginalName(); Concatena la fecha con el nombre de la imagen}
+            | *$file->move(public_path() . '/images/', $name); Mueve la imagen a la ruta \public\images\nombreImagen
+            |----------------
+        */
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+            $name = time() . $file->getClientOriginalName();
+            $file->move(public_path() . '/images/', $name);
+        }
+
+        /* 
+            
             | -------------------------------------------------------------------------------------------------------------------------
             | *new Trainer(); Es una nueva instancia del modelo
             | *$trainer->name = $request->input('name'); Lo que venga del elemento input HTML se guarda en el modelo cuyo campo es name
+            | *$trainer->description = $request->input('description'); Lo que venga del elemento input HTML se guarda en el modelo cuyo campo es description
+            | *$trainer->avatar = $name; Lo que venga del input file se guarda en el modelo cuyo campo es avatar
             | *$trainer->save(); Guarda el trainer
             | *return 'Saved'; Devuelve un texto
             | -------------------------------------------------------------------------------------------------------------------------
         */
         $trainer = new Trainer();
         $trainer->name = $request->input('name');
+        $trainer->description = $request->input('description');
+        $trainer->avatar = $name;
         $trainer->save();
         return 'Saved';
     }

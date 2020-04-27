@@ -4,7 +4,7 @@
 @section('title', 'Create Trainer')
 
 @section('content')
-<form action="/trainers" method="POST">
+<form action="/trainers" method="POST" enctype="multipart/form-data">
 
   @csrf
   
@@ -13,6 +13,12 @@
       <div class="form-group">
         <label for="">Nombre Entrenador</label>
         <input class="form-control" type="text" name="name">
+      <div class="form-group">
+        <label for="">Descripción del Entrenador</label>
+        <input class="form-control" type="text" name="description">
+      <div class="form-group">
+        <label for="">Avatar</label>
+        <input type="file" name="avatar">
       </div>
       <div class="form-group mt-3">
         <button type="submit" class="btn btn-primary">Guardar</button>
@@ -24,8 +30,7 @@
 
 
  {{-- Notas:
-      | ---------------------------------------------------------------------------------------------------------------------------------------------------
-      | *La directiva @csrf protege de ataques csrf (cross site request forgery)
-      |   *Más información en https://laravel.com/docs/5.6/csrf
-      | --------------------------------------------------------------------------------------------------------------------------------------------------- 
+      | -------------------------------------------------------------------------
+      | *enctype="multipart/form-data" Permite subir archivos desde el formulario
+      | ------------------------------------------------------------------------- 
 --}}
