@@ -6,9 +6,10 @@
 <div class="row">
   @foreach ($trainers as $trainer)
       <div class="col-sm">
-        <div class="card" style="width: 18rem;">
+        <div class="card text-center" style="width: 18rem; margin-top:70px;">
 
-          <img class="card-img-top" src="images/{{ $trainer->avatar }}" alt="{{ $trainer->name }}">
+          <img class="card-img-top rounded-circle mx-auto d-block" style="height:100px; width:100px; background-color:#efefef; margin:20px;"
+               src="images/{{ $trainer->avatar }}" alt="{{ $trainer->name }}">
 
           <div class="card-body">
             <h5 class="card-title">{{ $trainer->name }}</h5>
