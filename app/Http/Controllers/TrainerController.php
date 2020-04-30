@@ -95,22 +95,18 @@ class TrainerController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     * Función parar mostrar la información de un trainer
+     * Función parar mostrar la información de un trainer usando Model Binding
+     * Route Model Binding permite inyectar directamente el modelo como parámetro de la función show(Trainer $trainer)
+     *      *Más información en https://laravel.com/docs/5.6/routing#route-model-binding
      */
-    public function show($id)
+    public function show(Trainer $trainer)
     {
-        $trainer = Trainer::find($id);
         /* 
-            | ------------------------------------------------------
-            | *return $trainer Devuelve la información de un trainer
-            | ------------------------------------------------------
-        */
-        // return $trainer;
-
-        /* 
-            |------------------------------------------------------------------
-            | *Devuelve la vista 'trainers.show' y le pasa la variable $trainer
-            |------------------------------------------------------------------
+            |-----------------------------------------------------------------------------------------------------------------
+            | *Route Model Binding permite inyectar directamente el modelo como parámetro de la función show(Trainer $trainer)
+            |   *Más información en https://laravel.com/docs/5.6/routing#route-model-binding
+            | *Devuelve la vista 'trainers.show' y le pasa la variable $trainer usando Route Model Binding
+            |-----------------------------------------------------------------------------------------------------------------
         */
         return view('trainers.show', compact('trainer'));
     }
