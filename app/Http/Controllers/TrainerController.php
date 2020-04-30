@@ -95,10 +95,24 @@ class TrainerController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * Función parar mostrar la información de un trainer
      */
     public function show($id)
     {
-        //
+        $trainer = Trainer::find($id);
+        /* 
+            | ------------------------------------------------------
+            | *return $trainer Devuelve la información de un trainer
+            | ------------------------------------------------------
+        */
+        // return $trainer;
+
+        /* 
+            |------------------------------------------------------------------
+            | *Devuelve la vista 'trainers.show' y le pasa la variable $trainer
+            |------------------------------------------------------------------
+        */
+        return view('trainers.show', compact('trainer'));
     }
 
     /**
