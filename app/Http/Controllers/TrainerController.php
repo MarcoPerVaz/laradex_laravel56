@@ -126,10 +126,12 @@ class TrainerController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * Función para mostrar el formulario de edición de un trainer usando Implicit Binding
+     * return view('trainers.edit', compact('trainer')); Devuelve la vista trainers.edit y le pasa la variable $trainer
      */
-    public function edit($id)
+    public function edit(Trainer $trainer)
     {
-        //
+        return view('trainers.edit', compact('trainer'));
     }
 
     /**
@@ -138,10 +140,34 @@ class TrainerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * Función que actualiza a un trainer usando Implicit Binding
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Trainer $trainer)
     {
-        //
+        /* 
+            | -----------------------------------------------------------------------------------------------
+            | *return $trainer Devuelve la información del modelo
+            | *return $request Devuelve los valores de los campos HTML que tengan la propiedad name asignada
+            | *fill() se encarga de actualizar el trainer
+            | * if ($request->hasFile('avatar')) Se encarga de comprobar is hay una imagen que actualizar
+            | *$trainer->save() Guarda el trainer}
+            | *return 'Updated' Devuelve una cadena de texto
+            | -----------------------------------------------------------------------------------------------
+        */
+        // return $trainer;
+        // return $request;
+
+        $trainer->fill($request->except('avatar'));
+
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+            $name = time() . $file->getClientOriginalName();
+            $trainer->avatar = $name;
+            $file->move(public_path() . '/images/', $name);
+        }
+        $trainer->slug = str_slug($request->input('name'));
+        $trainer->save();
+        return 'Updated';
     }
 
     /**
