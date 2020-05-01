@@ -73,18 +73,21 @@ class TrainerController extends Controller
 
         /* 
             
-            | -------------------------------------------------------------------------------------------------------------------------
+            | ----------------------------------------------------------------------------------------------------------------------------------------------
             | *new Trainer(); Es una nueva instancia del modelo
             | *$trainer->name = $request->input('name'); Lo que venga del elemento input HTML se guarda en el modelo cuyo campo es name
             | *$trainer->description = $request->input('description'); Lo que venga del elemento input HTML se guarda en el modelo cuyo campo es description
+            | *$trainer->slug = str_slug($request->input('name')); 
+            |   *str_slug($request->input('name')) Convierte las mayúsculas en minúsculas y quita los espacios entre palabras
             | *$trainer->avatar = $name; Lo que venga del input file se guarda en el modelo cuyo campo es avatar
             | *$trainer->save(); Guarda el trainer
             | *return 'Saved'; Devuelve un texto
-            | -------------------------------------------------------------------------------------------------------------------------
+            | ----------------------------------------------------------------------------------------------------------------------------------------------
         */
         $trainer = new Trainer();
         $trainer->name = $request->input('name');
         $trainer->description = $request->input('description');
+        $trainer->slug = str_slug($request->input('name'));
         $trainer->avatar = $name;
         $trainer->save();
         return 'Saved';
@@ -98,16 +101,23 @@ class TrainerController extends Controller
      * Función parar mostrar la información de un trainer usando Model Binding
      * Route Model Binding permite inyectar directamente el modelo como parámetro de la función show(Trainer $trainer)
      *      *Más información en https://laravel.com/docs/5.6/routing#route-model-binding
+     * show($slug) Devuelve el slug y debe llamarse igual al parámetro de la ruta en ruta routes\web.php
+     * show(Trainer $trainer) usando Route Model Binding
      */
     public function show(Trainer $trainer)
     {
         /* 
-            |-----------------------------------------------------------------------------------------------------------------
-            | *Route Model Binding permite inyectar directamente el modelo como parámetro de la función show(Trainer $trainer)
-            |   *Más información en https://laravel.com/docs/5.6/routing#route-model-binding
+            |--------------------------------------------------------------------------------------------------------------------------------
+            | *Trainer::where('slug', '=', $slug)->firstOrFail();
+            |   *Trainer::where('slug', '=', $slug): Obtiene al trainer que el slug pasado como request sea igual al slug de la base de datos
+            |   *firstOrFail(): Si existe muestra el primero y si no existe muestra un error 404 Not found
+            |   *Se guarda en la variable $trainer
             | *Devuelve la vista 'trainers.show' y le pasa la variable $trainer usando Route Model Binding
-            |-----------------------------------------------------------------------------------------------------------------
+            | *Si la función es show($slug)
+            |   *Se debe incluir $trainer = Trainer::where('slug', '=', $slug)->firstOrFail();
+            |--------------------------------------------------------------------------------------------------------------------------------
         */
+        // $trainer = Trainer::where('slug', '=', $slug)->firstOrFail();
         return view('trainers.show', compact('trainer'));
     }
 
