@@ -4,11 +4,11 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Validando formularios__
+### Commit | __Validando formularios usando FormRequest__
 <!-- end commit name -->
 ===
 <!-- official documentation -->
-[Documentación | `Writing The Validation Logic`](https://laravel.com/docs/5.6/validation#quick-writing-the-validation-logic)
+[Documentación | `Form Request Validation`](https://laravel.com/docs/5.6/validation#form-request-validation)
 
 [Documentación | `Displaying The Validation Errors`](https://laravel.com/docs/5.6/validation#quick-displaying-the-validation-errors)
 
@@ -17,9 +17,12 @@
 
 <!-- commit instructions -->
 #### Instrucciones Commit
-1. Edición del controlador `app\Http\Controllers\TrainerController.php`
+1. Creación y edición del FormRequest `app\Http\Requests\StoreTrainerRequest.php`
+   > php artisan make:request StoreTrainerRequest
+2. Edición del controlador `app\Http\Controllers\TrainerController.php`
    - Edición de la función `store(Request $request)`
-2. Edición de la vista `resources\views\trainers\create.blade.php`
+
+   **No olvidar importar `use laradex\Http\Requests\StoreTrainerRequest;`*
 <!-- end commit instructions -->
 ===
 <!-- notes -->
@@ -33,7 +36,7 @@
 ===
 <!-- information -->
 #### Información:
-- Más información en `app\Http\Controllers\TrainerController.php`
+- Más información en `app\Http\Requests\StoreTrainerRequest.php`
 
-- Más información en `resources\views\trainers\create.blade.php`
+- Más información en `app\Http\Controllers\TrainerController.php`
 <!-- end information -->

@@ -4,6 +4,7 @@ namespace laradex\Http\Controllers;
 
 use laradex\Trainer;
 use Illuminate\Http\Request;
+use laradex\Http\Requests\StoreTrainerRequest;
 
 class TrainerController extends Controller
 {
@@ -47,28 +48,16 @@ class TrainerController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     * Función para crear un nuevo trainer
+     * Función para crear un nuevo trainer usando FormRequest
+     * *Para usar el FormRequest debe inyectarse en la función public function store(StoreTrainerRequest $request)
      */
-    public function store(Request $request)
+    public function store(StoreTrainerRequest $request)
     {
         /* 
             | -----------------------------------------------------------------------------------------------
-            | *Las reglas de validación permiten definir que requisitos tendrán los campos HTML
-            |   *Cuando la aplicación es pequeña, las validaciones pueden ir en el controlador
-            |   *Cuando la aplicación es grande es necesario crar FormRequest para almacenar las validaciones
-            | *'name' => 'required|max:10'
-            |   *El elemento 'name' es obligatorio y debe contener máximo 10 caracteres
-            | *'description' => 'required'
-            |   *El elemento 'description' es obligatorio
-            | *'avatar' => 'required|image'
-            |   *El elemento 'avatar' es obligatorio y tiene que ser de tipo imagen
+            | *Las reglas de validación se pasaron al FormRequest app\Http\Requests\StoreTrainerRequest.php
             | -----------------------------------------------------------------------------------------------
         */
-        $validateData = $request->validate([
-            'name' => 'required|max:10',
-            'description' => 'required',
-            'avatar' => 'required|image',
-        ]);
 
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
