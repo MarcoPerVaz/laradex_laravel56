@@ -4,19 +4,17 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Response Http__
+### Commit | __Mensajes de sesión__
 <!-- end commit name -->
 ===
 <!-- official documentation -->
-[Documentación | `Deleting Models`](https://laravel.com/docs/5.6/eloquent#deleting-models)
+[Documentación | `Redirecting With Flashed Session Data`](https://laravel.com/docs/5.6/responses#redirecting-with-flashed-session-data)
 <!-- end official documentation -->
 
 <!-- commit instructions -->
 #### Instrucciones Commit
 1. Edición del controlador `app\Http\Controllers\TrainerController.php`
-   - Edición de la función `store(StoreTrainerRequest $request)`
    - Edición de la función `update(Request $request, Trainer $trainer)`
-   - Edición de la función `destroy(Trainer $trainer)`
 <!-- end commit instructions -->
 ===
 <!-- notes -->
@@ -27,4 +25,6 @@
 <!-- information -->
 #### Información:
 - Más información en `app\Http\Controllers\TrainerController.php`
+
+- Más información en `resources\views\trainers\show.blade.php`
 <!-- end information -->
