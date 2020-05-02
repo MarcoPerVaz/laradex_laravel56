@@ -52,38 +52,30 @@ class TrainerController extends Controller
     public function store(Request $request)
     {
         /* 
-            | ---------------------------------------------------
-            | *No olvidar importar el modelo use laradex\Trainer;
-            | ---------------------------------------------------
+            | -----------------------------------------------------------------------------------------------
+            | *Las reglas de validación permiten definir que requisitos tendrán los campos HTML
+            |   *Cuando la aplicación es pequeña, las validaciones pueden ir en el controlador
+            |   *Cuando la aplicación es grande es necesario crar FormRequest para almacenar las validaciones
+            | *'name' => 'required|max:10'
+            |   *El elemento 'name' es obligatorio y debe contener máximo 10 caracteres
+            | *'description' => 'required'
+            |   *El elemento 'description' es obligatorio
+            | *'avatar' => 'required|image'
+            |   *El elemento 'avatar' es obligatorio y tiene que ser de tipo imagen
+            | -----------------------------------------------------------------------------------------------
         */
+        $validateData = $request->validate([
+            'name' => 'required|max:10',
+            'description' => 'required',
+            'avatar' => 'required|image',
+        ]);
 
-        /* 
-            |----------------
-            | *Comprueba si se recibe una imagen desde la vista 
-            | *$file = $request->file('avatar'); Obtiene el valor del elemento HTML con la propiedad name="avatar" y lo guarda en la variable $file
-            | *$name = time() . $file->getClientOriginalName(); Concatena la fecha con el nombre de la imagen}
-            | *$file->move(public_path() . '/images/', $name); Mueve la imagen a la ruta \public\images\nombreImagen
-            |----------------
-        */
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
             $name = time() . $file->getClientOriginalName();
             $file->move(public_path() . '/images/', $name);
         }
 
-        /* 
-            
-            | ----------------------------------------------------------------------------------------------------------------------------------------------
-            | *new Trainer(); Es una nueva instancia del modelo
-            | *$trainer->name = $request->input('name'); Lo que venga del elemento input HTML se guarda en el modelo cuyo campo es name
-            | *$trainer->description = $request->input('description'); Lo que venga del elemento input HTML se guarda en el modelo cuyo campo es description
-            | *$trainer->slug = str_slug($request->input('name')); 
-            |   *str_slug($request->input('name')) Convierte las mayúsculas en minúsculas y quita los espacios entre palabras
-            | *$trainer->avatar = $name; Lo que venga del input file se guarda en el modelo cuyo campo es avatar
-            | *$trainer->save(); Guarda el trainer
-            | *return 'Saved'; Devuelve un texto
-            | ----------------------------------------------------------------------------------------------------------------------------------------------
-        */
         $trainer = new Trainer();
         $trainer->name = $request->input('name');
         $trainer->description = $request->input('description');
@@ -185,6 +177,10 @@ class TrainerController extends Controller
 
 /* Notas:
     | ------------------------------------------------------------------------------------------------------------------------------------------
-    | *El comando php artisan make:controller TrainerController --resource crea 7 funciones (index, create, store, show, edit, update y destroy)
+    | *Las reglas de validación permiten definir que requisitos tendrán los campos HTML
+    |   *Cuando la aplicación es pequeña, las validaciones pueden ir en el controlador
+    |   *Cuando la aplicación es grande es necesario crar FormRequest para almacenar las validaciones
+    | *Para ver cuales son las reglas de validación que incluye Laravel 5.6
+    |   *https://laravel.com/docs/5.6/validation#available-validation-rules
     | ------------------------------------------------------------------------------------------------------------------------------------------
 */
