@@ -4,34 +4,27 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Eliminar un trainer__
+### Commit | __Response Http__
 <!-- end commit name -->
 ===
 <!-- official documentation -->
 [Documentación | `Deleting Models`](https://laravel.com/docs/5.6/eloquent#deleting-models)
-
-[Documentación | `Laravel Collective 5.4`](https://laravelcollective.com/docs/5.4/html)
 <!-- end official documentation -->
 
 <!-- commit instructions -->
 #### Instrucciones Commit
-1. Edición de la vista `resources\views\trainers\show.blade.php`
-2. Edición del controlador `app\Http\Controllers\TrainerController.php`
-   - Edición de la función `destroy($id)`
+1. Edición del controlador `app\Http\Controllers\TrainerController.php`
+   - Edición de la función `store(StoreTrainerRequest $request)`
+   - Edición de la función `update(Request $request, Trainer $trainer)`
+   - Edición de la función `destroy(Trainer $trainer)`
 <!-- end commit instructions -->
 ===
 <!-- notes -->
 #### Notas:
-- [Documentación oficial | `Laravel 5.6`](https://laravel.com/docs/5.6)
-
-- [Documentación | `Documentación oficial de Laravel Collective`](https://laravelcollective.com/)
-- Es recomendable no borrar los registros físicamente, para eso existen los borrados lógicos (soft delete)
-  - [Soft Deleting](https://laravel.com/docs/5.6/eloquent#soft-deleting)
+- [Documentación | `Documentación oficial de Laravel 5.6`](https://laravel.com/docs/5.6)
 <!-- end notes -->
 ===
 <!-- information -->
 #### Información:
-- Más información en `resources\views\trainers\show.blade.php`
-
 - Más información en `app\Http\Controllers\TrainerController.php`
 <!-- end information -->
