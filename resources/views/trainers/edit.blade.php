@@ -5,52 +5,47 @@
 @section('title', "Trainers Edit")
 
 @section('content')
-<form class="form-group" action="/trainers/{{ $trainer->slug }}" method="POST" enctype="multipart/form-data">
-  
-  @method('PUT')
-  
-  @csrf
+  {!! Form::model($trainer, ['route' => ['trainers.update', $trainer], 'method' => 'PUT', 'files' => true]) !!}
 
-  {{-- image --}}
-    <img style="height:200px; width:200px; background-color:#efefef; margin:20px;" class="card-img-top rounded-circle mx-auto d-block" 
+    <img style="height:200px; width:200px; background-color:#efefef; margin:20px;" class="card-img-top rounded-circle mx-auto d-block"  
          src="/images/{{ $trainer->avatar }}">
-  {{-- end image --}}
-   
-  {{-- name --}}
-    <div class="form-group">
-      <label for="">Nombre</label>
-      <input type="text" name="name" id="" value="{{ $trainer->name }}" class="form-control">
-    </div>
-  {{-- end name --}}
 
-  {{-- description --}}
-    <div class="form-group">
-      <label for="">Descripción</label>
-      <input type="text" name="description" id="" value="{{ $trainer->description }}" class="form-control">
-    </div>
-  {{-- end description --}}
+    {{-- name --}}
+      <div class="form-group">
+        {!! Form::label('name', 'Nombre') !!}
+        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+      </div>
+    {{-- end name --}}
 
-  {{-- avatar --}}
-    <div class="form-group">
-      <label for="">Avatar</label>
-      <input type="file" name="avatar">
-    </div>
-  {{-- avatar --}}
+    {{-- description --}}
+      <div class="form-group">
+        {!! Form::label('description', 'Descripción') !!}
+        {!! Form::text('description', null, ['class' => 'form-control']) !!}
+      </div>
+    {{-- end description --}}
 
-  <button type="submit" class="btn btn-primary">Actualizar</button>
+    {{-- avatar --}}
+      <div class="form-group">
+        {!! Form::label('avatar', 'Avatar') !!}
+        {!! Form::file('avatar') !!}
+      </div>
+    {{-- end avatar --}}
 
-</form>
+    {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
+
+  {!! Form::close() !!}
 @endsection
 
 
 {{-- Notas:
-      | --------------------------------------------------------------------------------------------------------------------------------------
-      | *@csrf Directiva que protege contra ataques de tipo csrf (cross-site-request-forgery)
-      | *@method('PUT') Directiva que agrega el método Http PUT que no incluyen los navegadores pero Laravel permite su uso y adaptación
-      | *$trainer es la variable que viene desde la función edit(Trainer $trainer) del controlador app\Http\Controllers\TrainerController.php
-      | *enctype="multipart/form-data" Permite incluir archivos dentro del formulario
-      | *No es recomendable incluir CSS en la vista
-      | *Se usa la librería Bootstrap 4.1.3
-      |   *Más información en https://getbootstrap.com/docs/4.1/getting-started/introduction/
-      | --------------------------------------------------------------------------------------------------------------------------------------  
+      | ---------------------------------------------------------------------------------------------------------
+      | *Para más información sobre Laravel Collective versión 5.4.0
+      |   *https://laravelcollective.com/docs/5.4/html
+      | *Se cambió la forma en que se guarda el campos 'slug'
+      |   *En el curso se hace:
+      |     *Modificar la migración para que el campo 'slug' acepte valores nulos
+      |     *Agregar un input a la vista resources\views\trainers\edit.blade.php para editar el slug
+      |   *Lo que se hizo fue creando el slug a partir del nombre del trainer usando la función str_slug() de php
+      |     *Función update(Request $request, $id) del controlador app\Http\Controllers\TrainerController.php
+      | --------------------------------------------------------------------------------------------------------- 
 --}}

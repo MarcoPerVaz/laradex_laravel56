@@ -160,6 +160,13 @@ return [
         laradex\Providers\EventServiceProvider::class,
         laradex\Providers\RouteServiceProvider::class,
 
+        /* 
+            | -------------------------
+            | *Laravel collective 5.4.0
+            | -------------------------
+        */
+        Collective\Html\HtmlServiceProvider::class,
+
     ],
 
     /*
@@ -208,6 +215,14 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        /* 
+            | -------------------------
+            | *Laravel collective 5.4.0
+            | -------------------------
+        */
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
