@@ -4,39 +4,34 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Validando formularios usando FormRequest__
+### Commit | __Eliminar un trainer__
 <!-- end commit name -->
 ===
 <!-- official documentation -->
-[Documentación | `Form Request Validation`](https://laravel.com/docs/5.6/validation#form-request-validation)
+[Documentación | `Deleting Models`](https://laravel.com/docs/5.6/eloquent#deleting-models)
 
-[Documentación | `Displaying The Validation Errors`](https://laravel.com/docs/5.6/validation#quick-displaying-the-validation-errors)
-
-[Documentación | `Available Validation Rules`](https://laravel.com/docs/5.6/validation#available-validation-rules)
+[Documentación | `Laravel Collective 5.4`](https://laravelcollective.com/docs/5.4/html)
 <!-- end official documentation -->
 
 <!-- commit instructions -->
 #### Instrucciones Commit
-1. Creación y edición del FormRequest `app\Http\Requests\StoreTrainerRequest.php`
-   > php artisan make:request StoreTrainerRequest
+1. Edición de la vista `resources\views\trainers\show.blade.php`
 2. Edición del controlador `app\Http\Controllers\TrainerController.php`
-   - Edición de la función `store(Request $request)`
-
-   **No olvidar importar `use laradex\Http\Requests\StoreTrainerRequest;`*
+   - Edición de la función `destroy($id)`
 <!-- end commit instructions -->
 ===
 <!-- notes -->
 #### Notas:
 - [Documentación oficial | `Laravel 5.6`](https://laravel.com/docs/5.6)
 
-- [Available Validation Rules](https://laravel.com/docs/5.6/validation#available-validation-rules)
-- Si la aplicación es pequeña las validaciones se pueden hacer en el controlador
-- Si la aplicación es grande entonces deben crearse FormRequest para almacenar las validaciones
+- [Documentación | `Documentación oficial de Laravel Collective`](https://laravelcollective.com/)
+- Es recomendable no borrar los registros físicamente, para eso existen los borrados lógicos (soft delete)
+  - [Soft Deleting](https://laravel.com/docs/5.6/eloquent#soft-deleting)
 <!-- end notes -->
 ===
 <!-- information -->
 #### Información:
-- Más información en `app\Http\Requests\StoreTrainerRequest.php`
+- Más información en `resources\views\trainers\show.blade.php`
 
 - Más información en `app\Http\Controllers\TrainerController.php`
 <!-- end information -->

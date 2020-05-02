@@ -11,15 +11,16 @@
     <p>{{ $trainer->description }}</p>
     
     <a href="/trainers/{{ $trainer->slug }}/edit" class="btn btn-primary">Editar</a>
+
+    {!! Form::open(['route' => ['trainers.destroy', $trainer->slug], 'method' => 'DELETE']) !!}
+      {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
+    {!! Form::close() !!}
   </div>
 @endsection
 
 
 {{-- Notas:
       | -----------------------------------------------------------------------------------------------------------------------
-      | *$trainer es la variable pasada desde la función show($id) en el controlador app\Http\Controllers\TrainerController.php
-      | *No se recomienda incluir CSS dentro de la vista
-      | *Se usa la librería Bootstrap 4.1.3
-      |   *Más información en https://getbootstrap.com/docs/4.1/getting-started/introduction/
+      | *Más información sobre Laravel Collectiva https://laravelcollective.com/docs/5.4/html
       | -----------------------------------------------------------------------------------------------------------------------  
 --}}

@@ -156,20 +156,30 @@ class TrainerController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * return $trainer; Devuelve la información del modelo Trainer
+     * return $file_path = public_path(); Devuelve la ruta del directorio public
+     * return $file_path = public_path() . '/images/' . $trainer->avatar; Devuelve la ruta completa de la imagen del trainer
+     * \File::delete($file_path); Borra la imagen físicamente 
+     * $trainer->delete(); Borra el registro de la base de datos
+     * return "deleted"; Muestra u texto
      */
-    public function destroy($id)
+    public function destroy(Trainer $trainer)
     {
-        //
+        // return $trainer;
+        // return $file_path = public_path();
+        // return $file_path = public_path() . '/images/' . $trainer->avatar;
+
+        $file_path = public_path() . '/images/' . $trainer->avatar;
+        \File::delete($file_path);
+        $trainer->delete();
+        return "deleted";
     }
 }
 
 
 /* Notas:
     | ------------------------------------------------------------------------------------------------------------------------------------------
-    | *Las reglas de validación permiten definir que requisitos tendrán los campos HTML
-    |   *Cuando la aplicación es pequeña, las validaciones pueden ir en el controlador
-    |   *Cuando la aplicación es grande es necesario crar FormRequest para almacenar las validaciones
-    | *Para ver cuales son las reglas de validación que incluye Laravel 5.6
-    |   *https://laravel.com/docs/5.6/validation#available-validation-rules
+    | *Para más información sobre eliminar registros
+    |   *https://laravel.com/docs/5.6/eloquent#deleting-models
     | ------------------------------------------------------------------------------------------------------------------------------------------
 */
