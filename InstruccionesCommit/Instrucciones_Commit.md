@@ -4,7 +4,7 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Mensajes de sesión__
+### Commit | __Refactor-Vistas parciales para errores y confirmaciones__
 <!-- end commit name -->
 ===
 <!-- official documentation -->
@@ -13,8 +13,11 @@
 
 <!-- commit instructions -->
 #### Instrucciones Commit
-1. Edición del controlador `app\Http\Controllers\TrainerController.php`
-   - Edición de la función `update(Request $request, Trainer $trainer)`
+1. Creación del directorio `resources\views\common`
+   - Creación y edición de la vista `resources\views\common\errors.blade.php`
+   - Creación y edición de la vista `resources\views\common\success.blade.php`
+2. Edición de la vista `resources\views\trainers\create.blade.php`
+3. Edición de la vista `resources\views\trainers\show.blade.php`
 <!-- end commit instructions -->
 ===
 <!-- notes -->
@@ -24,7 +27,7 @@
 ===
 <!-- information -->
 #### Información:
-- Más información en `app\Http\Controllers\TrainerController.php`
+- Más información en `resources\views\common\errors.blade.php`
 
-- Más información en `resources\views\trainers\show.blade.php`
+- Más información en `resources\views\common\success.blade.php`
 <!-- end information -->

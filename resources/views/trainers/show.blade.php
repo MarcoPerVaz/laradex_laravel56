@@ -5,11 +5,7 @@
 
 @section('content')
 
-  @if (session('status'))
-      <div class="alert alert-success">
-        {{ session('status') }}
-      </div>
-  @endif
+  @include('common.success')
 
   <img style="height:200px; width:200px; background-color:#efefef; margin:20px;" class="card-img-top rounded-circle mx-auto d-block" 
           src="/images/{{ $trainer->avatar }}" alt="">
@@ -27,8 +23,7 @@
 
 
 {{-- Notas:
-      | -------------------------------------------------------------------------------------------------------------------------------
-      | *session('status') Es una variable de sesión que viene de la función update(Request $request, Trainer $trainer) del controlador 
-      |  app\Http\Controllers\TrainerController.php
-      | -------------------------------------------------------------------------------------------------------------------------------  
+      | ---------------------------------------------------------------------
+      | *La directiva @include permite incluir una vista dentro de otra vista  
+      | ---------------------------------------------------------------------  
 --}}
