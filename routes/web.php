@@ -30,3 +30,6 @@ Route::resource('trainers', 'TrainerController');
     | *resource() Significa que es una ruta que contiene 7 rutas (index, create, store, show, edit, update y destroy)
     | -------------------------------------------------------------------------------------------------------
 */
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
