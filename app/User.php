@@ -9,6 +9,17 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    /* 
+        | --------------------------------------------------------------------
+        | *roles() Es para crear la relación muchos a muchos - belongsToMany()
+        | *'App\Role' Es la instancia del modelo app\Role.php
+        | --------------------------------------------------------------------
+    */
+    public function roles()
+    {
+        return $this->belongsToMany('laradex\Role');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

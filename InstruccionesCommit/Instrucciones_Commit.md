@@ -4,49 +4,41 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Autenticación y registro de usuarios usando Auth__
+### Commit | __Modelo Role y su migración__
 <!-- end commit name -->
 ===
 <!-- official documentation -->
-[Documentación | `Authentication Quickstart`](https://laravel.com/docs/5.6/authentication#authentication-quickstart)
+[Documentación | `Eloquent: Relationships`](https://laravel.com/docs/5.6/eloquent-relationships)
 <!-- end official documentation -->
 
 <!-- commit instructions -->
 #### Instrucciones Commit
-1. Creación del scaffolding y rutas para Auth
-   > php artisan make:auth
+1. Creación del modelo `app\Role.php` con su migración `database\migrations\2020_05_02_232653_create_roles_table.php`
+   > php artisan make:model Role -m
 
-   **Laravel pedirá confirmaciones si al crear sus vistas ya hay una con el mismo nombre*
+   **Crea un modelo y para el nombre de la migración se basa en el nombre del modelo*
+   - Edición de la migración `database\migrations\2020_05_02_232653_create_roles_table.php`
+   - Edición del modelo `app\Role.php`
+2. Creación de la migración `database\migrations\2020_05_02_233057_create_role_user_table.php`
+   > php artisan make:migration create_role_user_table
 
-   **The [layouts/app.blade.php] view already exists. Do you want to replace it? (yes/no) [no]:*
-
-   > yes
-   - El comando genera lo siguiente:
-      - Creación del controlador `app\Http\Controllers\HomeController.php`
-      - Creación del directorio `resources\views\auth`
-      - Creación del directorio `resources\views\auth\passwords`
-         - Creación de la vista `resources\views\auth\passwords\email.blade.php`
-         - Creación de la vista `resources\views\auth\passwords\reset.blade.php`
-      - Creación de la vista `resources\views\auth\login.blade.php`
-      - Creación de la vista `resources\views\auth\register.blade.php`
-      - Creación del directorio `resources\views\layouts`
-         - Creación de la vista `resources\views\layouts\app.blade.php`
-      - Creación de la vista `resources\views\home.blade.php`
-
-      **Ya existía el directorio `resources\views\layouts` y la vista `resources\views\layouts\app.blade.php` pero el comando reemplazo la vista, GIT interpretá que el archivo fue modificado pero en realidad se reemplazo*
-      - Edición del archivo de rutas `routes\web.php`
-        - El comando genera una ruta para todas las rutas necesarias para Auth
-          - `Auth::routes();`
-        - El comando genera una ruta asociada al controlador `app\Http\Controllers\HomeController.php`
-          - `Route::get('/home', 'HomeController@index')->name('home');`
+   **Esta migración servirá de tabla pivote(almacenará el id del role y el id del usuario)*
+   - Edición de la migración `database\migrations\2020_05_02_233057_create_role_user_table.php`
+3. Edición del modelo `app\User.php`
 <!-- end commit instructions -->
 ===
 <!-- notes -->
 #### Notas:
 - [Documentación oficial | `Laravel 5.6`](https://laravel.com/docs/5.6)
-- `php artisan make:auth` genera vistas y rutas para la autenticación 
 <!-- end notes -->
 ===
 <!-- information -->
-<!-- #### Información: -->
+#### Información:
+- Más información en `database\migrations\2020_05_02_232653_create_roles_table.php`
+
+- Más información en `database\migrations\2020_05_02_233057_create_role_user_table.php`
+
+- Más información en `app\Role.php`
+
+- Más información en `app\User.php`
 <!-- end information -->
