@@ -18,8 +18,50 @@ class TrainerController extends Controller
      * all() es una colección de Laravel y todos los métodos disponibles para colecciones
      *  Más información en https://laravel.com/docs/5.6/collections#available-methods
      */
-    public function index()
+    public function index(Request $request)
     {
+        /* 
+            | -------------------------------------------------------------------------------------------------------------------------------------
+            | *Esta validación no la incluye el curso pero es necesaria porque si el usuario no ha iniciado sesión no puede acceder a la validación 
+            |  de su role y muestra un error: Call to a member function authorizeRoles() on null
+            | -------------------------------------------------------------------------------------------------------------------------------------
+        */
+        if (is_null($request->user())) {
+            return redirect('/');
+        }
+
+        /* 
+            | ---------------------------------------------------------------
+            | *Solo permite al role admin 
+            | *La función authorizeRoles($roles) Se encuentra en app\User.php
+            | ---------------------------------------------------------------
+        */
+        // $request->user()->authorizeRoles('admin');
+
+        /* 
+            | ---------------------------------------------------------------
+            | *Solo permite al role user 
+            | *La función authorizeRoles($roles) Se encuentra en app\User.php
+            | ---------------------------------------------------------------
+        */
+        // $request->user()->authorizeRoles('user');
+
+        /* 
+            | ---------------------------------------------------------------
+            | *Solo permite al role admin y user
+            | *La función authorizeRoles($roles) Se encuentra en app\User.php
+            | ---------------------------------------------------------------
+        */
+        // $request->user()->authorizeRoles(['admin', 'user']);
+
+        /* 
+            | ---------------------------------------------------------------
+            | *Solo permite al role admin
+            | *La función authorizeRoles($roles) Se encuentra en app\User.php
+            | ---------------------------------------------------------------
+        */
+        $request->user()->authorizeRoles(['admin']);
+
         /* 
             | -----------------------------------------------------------------------------------------------------------------------------------------------
             | *Trainer::all(); Obtiene todos los registros del modelo Trainer(tabla trainers)
