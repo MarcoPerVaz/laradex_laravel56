@@ -21,6 +21,17 @@ Route::get('/', function () {
 */
 Route::resource('trainers', 'TrainerController');
 
+/* 
+    | --------------------------------------------------------------------------------------------------------
+    | *Ruta que apunta a '/pokemons' asociada al controlador app\Http\Controllers\PokemonController.php
+    | *Ruta Resource que contiene 7 rutas (index, create, store, show, edit, update y destroy)
+    |   *Laravel automáticamente le asigna nombres a las rutas
+    |       *Para ver las rutas del proyecto 
+    |           *php artisan router:list
+    | --------------------------------------------------------------------------------------------------------
+*/
+Route::resource('pokemons', 'PokemonController');
+
 
 /* Notas:
     | -------------------------------------------------------------------------------------------------------
