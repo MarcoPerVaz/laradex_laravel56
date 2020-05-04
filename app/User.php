@@ -37,4 +37,54 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    /* 
+        | ---------------------------------------------------------------------------------------------------------------------
+        | *Valida si el usario tiene algún role y lo deja pasar, de lo contrario manda un error 401 This action is unauthorized
+        | *Usa la función hasAnyRole() 
+        | ---------------------------------------------------------------------------------------------------------------------
+    */
+    public function authorizeRoles($roles)
+    {
+        if ($this->hasAnyRole($roles)) {
+            return true;
+        }
+        abort(401, 'This action is unauthorized');
+    }
+
+    /* 
+        | -------------------------------------------
+        | *Valida si el usuario tiene uno o más roles
+        | *Usa la función hasRole()
+        | -------------------------------------------
+    */
+    public function hasAnyRole($roles)
+    {
+        if (is_array($roles)) {
+            foreach ($roles as $role) {
+                if ($this->hasRole($role)) {
+                    return true;
+                }
+            }
+        } else {
+            if ($this->hasRole($roles)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /* 
+        | -----------------------------------
+        | *Verifica que role tiene el usuario
+        | -----------------------------------
+    */
+    public function hasRole($role)
+    {
+        if ($this->roles()->where('name', $role)->first()) {
+            return true;
+        }
+        return false;
+    }
 }
