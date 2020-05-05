@@ -18,6 +18,8 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('pokemons-component', require('./components/PokemonsComponent.vue'));
 Vue.component('spinner-component', require('./components/Spinner.vue'));
+Vue.component('add-pokemon-btn', require('./components/AddPokemonComponent.vue'));
+Vue.component('create-form-pokemon', require('./components/CreatePokemonComponent.vue'));
 
 const app = new Vue({
     el: '#app'
@@ -25,12 +27,14 @@ const app = new Vue({
 
 
 /* Notas:
-    | --------------------
+    | -----------------------------------------------------------------------------------------------------------------------------------------------
     | *Vue.component('pokemons-component', require('./components/PokemonsComponent.vue'));
     |   *Vue es una nueva instancia de vuejs
     |   *component() Es la función que recibe el nombre del componente y su referencia de ruta
     |   *pokemons-component es el nombre que tenemos que poner en la etiqueta para poder usar el componente <pokemons-component></pokemons-component> 
     |   *require() Es la función para indicar la ruta del componente
     | *spinner-component Es el componente que tendrá el spinner loader y se mostrará al cargas los pokémon
-    | --------------------
+    | *add-pokemon-btn Es el componente que incluye un botón para mostrar el formulario de creación de un pokémon
+    | *create-form-pokemon Es el componente para crear un pokémon
+    | -----------------------------------------------------------------------------------------------------------------------------------------------
 */

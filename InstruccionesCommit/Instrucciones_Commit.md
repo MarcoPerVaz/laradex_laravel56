@@ -4,32 +4,47 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Lógica para guardar un pokémon desde el controlador__
+### Commit | __Componente para guardar un pokémon__
 <!-- end commit name -->
 ===
 <!-- official documentation -->
+[Documentación | `Vue.js 2`](https://vuejs.org/v2/guide/)
+
 [Documentación | `Writing Vue Components`](https://laravel.com/docs/5.6/frontend#writing-vue-components)
 <!-- end official documentation -->
 
 <!-- commit instructions -->
 #### Instrucciones Commit
-1. Creación del modelo `app\Pokemon.php` junto a su migración `database\migrations\2020_05_05_102756_create_pokemon_table.php`
-   > php artisan make:model Pokemon -m
-   - Edición de la migración `database\migrations\2020_05_05_102756_create_pokemon_table.php`
-2. Implementar la migración
-   > php artisan migrate
-3. Edición del controlador `app\Http\Controllers\PokemonController.php`
-   - Creación y edición de la función `store(Request $request)`
+1. Creación y edición del componente `resources\assets\js\components\AddPokemonComponent.vue`
+2. Creación y edición del componente `resources\assets\js\components\CreatePokemonComponent.vue`
+3. Edición del archivo `resources\assets\js\app.js`
+
+   **Se registran los componentes nuevos*
+4. Edición de la vista `resources\views\pokemons\index.blade.php`
+5. Compilar archivos de Javascript
+   > npm run dev
+
+   **`npm run dev` compila los archivos cada que se usa el comando*
+
+   > npm run watch
+
+   **`npm run watch` compila los archivos cada que haya cambios de forma automática*
 <!-- end commit instructions -->
 ===
 <!-- notes -->
 #### Notas:
 - [Documentación oficial | `Laravel 5.6`](https://laravel.com/docs/5.6)
+- [Documentación oficial | `Vue.js 2`](https://vuejs.org/v2/guide/)
+- [Documentación oficial | `Bootstrap 4.0.0`](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 <!-- end notes -->
 ===
 <!-- information -->
 #### Información:
-- Más información en `database\migrations\2020_05_05_102756_create_pokemon_table.php`
+- Más información en `resources\assets\js\components\AddPokemonComponent.vue`
 
-- Más información en `app\Http\Controllers\PokemonController.php`
+- Más información en `resources\assets\js\app.js`
+
+- Más información en `resources\views\pokemons\index.blade.phps`
+
+- Más información en `resources\assets\js\components\CreatePokemonComponent.vue`
 <!-- end information -->
