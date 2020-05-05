@@ -4,11 +4,10 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Implementando Vuej.js 2__
+### Commit | __Lista de pokémon de forma estática desde componente__
 <!-- end commit name -->
 ===
 <!-- official documentation -->
-[Documentación | `JavaScript & CSS Scaffolding`](https://laravel.com/docs/5.6/frontend)
 
 [Documentación | `Vue.js 2`](https://vuejs.org/v2/guide/)
 
@@ -17,14 +16,10 @@
 
 <!-- commit instructions -->
 #### Instrucciones Commit
-1. Instalación de dependencias de Javascript (front-end)
-   > npm install
-2. Edición del archivo de rutas `routes\web.php`
-3. Creación y edición del controlador `app\Http\Controllers\PokemonController.php`
-   - Creación y edición de la función `index()`
-4. Creación del directorio `resources\views\pokemons`
-   - Creción y edición de la vista `resources\views\pokemons\index.blade.php`
-5. Compilar archivos de Javascript
+1. Creación y edición del componente `resources\assets\js\components\PokemonsComponent.vue`
+2. Edición del archivo `resources\assets\js\app.js`
+3. Edición de la vista `resources\views\pokemons\index.blade.php`
+4. Compilar archivos de Javascript
    > npm run dev
 
    **`npm run dev` compila los archivos cada que se usa el comando*
@@ -39,9 +34,14 @@
 - [Documentación oficial | `Laravel 5.6`](https://laravel.com/docs/5.6)
 
 - [Documentación oficial | `Vue.js 2`](https://vuejs.org/v2/guide/)
+- Los componentes deben registrarse en `resources\assets\js\app.js`
 <!-- end notes -->
 ===
 <!-- information -->
 #### Información:
-- Más información en `routes\web.php`
+- Más información en `resources\assets\js\components\PokemonComponent.vue`
+
+- Más información en `resources\assets\js\app.js`
+
+- Más información en `resources\views\pokemons\index.blade.php`
 <!-- end information -->
