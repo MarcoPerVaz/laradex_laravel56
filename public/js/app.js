@@ -49604,15 +49604,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      pokemons: [{ id: 1, name: "Pikachu" }, { id: 2, name: "Squirtle" }, { id: 3, name: "Charizard" }]
+      pokemons: []
     };
   },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    var _this = this;
+
+    axios.get('/pokemons').then(function (response) {
+      return _this.pokemons = response.data;
+    });
   }
 });
 
@@ -49628,7 +49639,7 @@ var render = function() {
     "div",
     { staticClass: "row" },
     _vm._l(_vm.pokemons, function(pokemon) {
-      return _c("div", { staticClass: "col-sm" }, [
+      return _c("div", { key: pokemon, staticClass: "col-sm" }, [
         _c(
           "div",
           {
