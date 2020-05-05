@@ -30,4 +30,33 @@ class PokemonController extends Controller
 
         return view('pokemons.index');
     }
+
+    /* 
+     | ------------------
+     | *Guarda un Pokémon
+     | ------------------
+    */
+    public function store(Request $request)
+    {
+        /* 
+            | -----------------------------------------------------------------------------------------------------------------------------
+            | *if ($request->ajax()) Validar que solo se reciba una respuesta ajax
+            | *new Pokemon() Nueva instancia del modelo Pokemon
+            | *$pokemon->name = $request->input('name'); Asigna lo que venga del elemento Html en el campo name del modelo Pokemon
+            | *$pokemon->picture = $request->input('picture'); Asigna lo que venga del elemento Html en el campo picture del modelo Pokemon
+            | *$pokemon->save(); Guarda el pokémon
+            | *return response()->json([]) Devuelve una respuesta json con un mensaje y un estado Http de código 200 ()
+            | -----------------------------------------------------------------------------------------------------------------------------
+        */
+        if ($request->ajax()) {
+            $pokemon = new Pokemon();
+            $pokemon->name = $request->input('name');
+            $pokemon->picture = $request->input('picture');
+            $pokemon->save();
+
+            return response()->json([
+                "message" => "Pokemon creado correctamente"
+            ], 200);
+        }
+    }
 }
