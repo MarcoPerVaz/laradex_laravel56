@@ -8,6 +8,11 @@
 */
 <template>
   <div class="row">
+
+    <div class="col-12">
+      <spinner-component v-show="loading"></spinner-component>
+    </div>
+
     <div class="col-sm" v-for="pokemon in pokemons" :key="pokemon.id">
       <div class="card text-center" style="width: 18rem; margin-top:70px;">
         <img style="height:100px; width:100px; background-color:#efefef; margin:20px;" class="card-img-top rounded-circle mx-auto d-block" 
@@ -26,11 +31,17 @@
 export default {
   data(){
     return {
-      pokemons: []
+      pokemons: [],
+      loading: true,
     }
   },
   mounted() {
-    axios.get('/pokemons').then(response => (this.pokemons = response.data))
+    axios.get('/pokemons').then(response => 
+      (
+        this.pokemons = response.data,
+        this.loading = false
+      )
+    );
   }
 }
 </script>
@@ -52,6 +63,9 @@ export default {
     |    es obtenido a tráves de la ruta Route::resource('pokemons', 'PokemonController'); en routes\web.php
     |   *response es el nombre que se le asigna a la respues de axios (puede ser cualquier nombre)
     |   *this.pokemons = response.data Se le asigna a información de la respuesta de axios en el array pokemons en data del componente
+    | *<spinner-component></spinner-component> Es el componente resources\assets\js\components\Spinner.vue
+    | *data: loading: true, Por defecto muestra el spinner
+    | *mounted: this.loading = false; Cuando se muestran los pokémon se oculta el spinner
     | -------------------------------------------------------------------------------
  */
 

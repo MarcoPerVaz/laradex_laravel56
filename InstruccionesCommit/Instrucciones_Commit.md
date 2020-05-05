@@ -4,7 +4,7 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Lista de pokémon de forma estática desde controlador__
+### Commit | __Componente Spinner-Loader al mostrar pokémons__
 <!-- end commit name -->
 ===
 <!-- official documentation -->
@@ -16,10 +16,12 @@
 
 <!-- commit instructions -->
 #### Instrucciones Commit
-1. Edición del componente `resources\assets\js\components\PokemonsComponent.vue`
-2. Edición del controlador `app\Http\Controllers\PokemonController.php`
-   - Edición de la función `index()`
-3. Compilar archivos de Javascript
+1. Creación y edición del componente `resources\assets\js\components\Spinner.vue`
+2. Edición del archivo `resources\assets\js\app.js`
+
+   **Se registra el nuevo componente*
+3. Edición del componente `resources\assets\js\components\PokemonsComponent.vue`
+4. Compilar archivos de Javascript
    > npm run dev
 
    **`npm run dev` compila los archivos cada que se usa el comando*
@@ -34,11 +36,17 @@
 - [Documentación oficial | `Laravel 5.6`](https://laravel.com/docs/5.6)
 
 - [Documentación oficial | `Vue.js 2`](https://vuejs.org/v2/guide/)
+- [Ver más `Spinners loaders`](https://projects.lukehaas.me/css-loaders/)
+   - Colores de Vue (se asignan desde el sitio)
+     - BG: Rojo(52) Verde(73) Azul(94)
+     - FG: Rojo(65) Verde(184) Azul(131)
 <!-- end notes -->
 ===
 <!-- information -->
 #### Información:
-- Más información en `resources\assets\js\components\PokemonComponent.vue`
+- Más información en `resources\assets\js\app.js`
 
-- Más información en `app\Http\Controllers\PokemonController.php`
+- Más información en `resources\assets\js\components\PokemonsComponent.vue`
+
+- Más información en `resources\assets\js\components\Spinner.vue`
 <!-- end information -->

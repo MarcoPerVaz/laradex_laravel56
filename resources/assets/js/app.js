@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('pokemons-component', require('./components/PokemonsComponent.vue'));
+Vue.component('spinner-component', require('./components/Spinner.vue'));
 
 const app = new Vue({
     el: '#app'
@@ -29,6 +30,7 @@ const app = new Vue({
     |   *Vue es una nueva instancia de vuejs
     |   *component() Es la función que recibe el nombre del componente y su referencia de ruta
     |   *pokemons-component es el nombre que tenemos que poner en la etiqueta para poder usar el componente <pokemons-component></pokemons-component> 
-    |   *require() Es la función para indicar la ruta del componente 
+    |   *require() Es la función para indicar la ruta del componente
+    | *spinner-component Es el componente que tendrá el spinner loader y se mostrará al cargas los pokémon
     | --------------------
 */
