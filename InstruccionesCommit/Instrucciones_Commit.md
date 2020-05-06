@@ -4,9 +4,9 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Listar pokémon's asociados a un trainer__
+### Commit | __*Arreglando detalles__
 
-**Hasta aquí llega el curso*
+**Estos cambios no están en el curso*
 <!-- end commit name -->
 ===
 <!-- official documentation -->
@@ -15,31 +15,15 @@
 
 <!-- commit instructions -->
 #### Instrucciones Commit
-1. Edición de la vista `resources\views\trainers\show.blade.php`
-2. Edición del archivo `routes\web.php`
-3. Edición del componente `resources\assets\js\components\pokemons\listPokemons.vue`
-4. Compilar archivos de Javascript
-   > npm run dev
-
-   **`npm run dev` compila los archivos cada que se usa el comando*
-
-   > npm run watch
-
-   **`npm run watch` compila los archivos cada que haya cambios de forma automática*
-5. FIN DEL CURSO
+1. Edición de la vista `resources\views\welcome.blade.php`
+2. Edición del archivo de configuración `.env.example`
+3. Edición de la vista `resources\views\trainers\index.blade.php`
 <!-- end commit instructions -->
 ===
 <!-- notes -->
-#### Notas:
-- [Documentación oficial | `Laravel 5.6`](https://laravel.com/docs/5.6)
-- [Documentación oficial | `Vue.js 2`](https://vuejs.org/v2/guide/)
+<!-- #### Notas: -->
 <!-- end notes -->
-===
+<!-- === -->
 <!-- information -->
-#### Información:
-- Más información en `resources\views\trainers\show.blade.php`
-
-- Más información en `routes\web.php`
-
-- Más información en `resources\assets\js\components\pokemons\listPokemons.vue`
+<!-- #### Información: -->
 <!-- end information -->

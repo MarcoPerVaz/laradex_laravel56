@@ -3,6 +3,11 @@
 
 @section('title', 'Trainers')
 @section('content')
+
+<div class="col-sm mt-2">
+  <a class="btn btn-primary" href="{{ url('/trainers/create') }}">Crear Trainer</a>
+</div>
+
 <div class="row">
   @foreach ($trainers as $trainer)
       <div class="col-sm">
