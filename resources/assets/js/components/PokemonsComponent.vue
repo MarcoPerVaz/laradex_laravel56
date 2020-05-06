@@ -29,12 +29,27 @@
 </template>
 
 <script>
+import EventBus from '../event-bus';
 export default {
   data(){
     return {
       pokemons: [],
       loading: true,
     }
+  },
+  /* 
+    | -------------------------------------------------------------------------------------------------------------------------------------
+    | *EventBus Es la instancia de resources\assets\js\event-bus.js
+    | *$on Es para escuchar el evento
+    | *'pokemon-added' Nombre del evento que hay que escuchar
+    | *data Es la información del pokémon nuevo
+    | *this.pokemons.push(data) Accede a la variable data: pokemons: [] y se usa el método push() para agregar la información a la variable
+    | -------------------------------------------------------------------------------------------------------------------------------------
+  */
+  created(){
+    EventBus.$on('pokemon-added', data => {
+      this.pokemons.push(data)
+    })
   },
   mounted() {
     axios.get('/pokemons').then(response => 
@@ -56,17 +71,10 @@ export default {
     |   *Etiqueta style: Dónde van los estilos del componente
     | *No es recomendable usar css en el Html pero en esta caso es demostrativo
     | *La propiedad mounted() es para cargar código tan pronto se monte el componente
-    | *Axios es una librería de javascript similiar a ajax sirve para hacer peticiones asíncronas es decir sin necesidad de recargar el navegador
-    | *axios.get('/pokemons').then(response => (this.pokemons = response.data))
-    |   *axios es la instancia de axios
-    |   *get() es el método Http get
-    |   *'/pokemons' es la ruta de donde se obtiene la respuesta json y es enviada desde el controlador app\Http\Controllers\PokemonController.php que a su vez
-    |    es obtenido a tráves de la ruta Route::resource('pokemons', 'PokemonController'); en routes\web.php
-    |   *response es el nombre que se le asigna a la respues de axios (puede ser cualquier nombre)
-    |   *this.pokemons = response.data Se le asigna a información de la respuesta de axios en el array pokemons en data del componente
-    | *<spinner-component></spinner-component> Es el componente resources\assets\js\components\Spinner.vue
-    | *data: loading: true, Por defecto muestra el spinner
-    | *mounted: this.loading = false; Cuando se muestran los pokémon se oculta el spinner
+    | *import EventBus from '../event-bus'; Se importa resources\assets\js\event-bus.js
+    | *created() es parte del ciclo de vida de un componente Vue
+    |   *Más información en https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram  (IMPORTANTE)
+    |   *Más información en https://vuejs.org/v2/api/#created
     | -------------------------------------------------------------------------------
  */
 

@@ -45,7 +45,8 @@ class PokemonController extends Controller
             | *$pokemon->name = $request->input('name'); Asigna lo que venga del elemento Html en el campo name del modelo Pokemon
             | *$pokemon->picture = $request->input('picture'); Asigna lo que venga del elemento Html en el campo picture del modelo Pokemon
             | *$pokemon->save(); Guarda el pokémon
-            | *return response()->json([]) Devuelve una respuesta json con un mensaje y un estado Http de código 200 ()
+            | *return response()->json([]) Devuelve una respuesta json con un mensaje y un estado Http de código 200
+            | *"pokemon" => $pokemon Envía en formato json toda la instancia del modelo Pokemon
             | -----------------------------------------------------------------------------------------------------------------------------
         */
         if ($request->ajax()) {
@@ -55,7 +56,8 @@ class PokemonController extends Controller
             $pokemon->save();
 
             return response()->json([
-                "message" => "Pokemon creado correctamente"
+                "message" => "Pokemon creado correctamente",
+                "pokemon" => $pokemon
             ], 200);
         }
     }

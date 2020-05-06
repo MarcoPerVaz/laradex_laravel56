@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import EventBus from '../event-bus';
 export default {
   data(){
     return {
@@ -50,13 +51,6 @@ export default {
     | *Ruta: axios.post('https://laradexlaravel56.it/pokemons') o axios.post('http://laradexlaravel56.it/pokemons')
     |   *axios.post es la petición Http de tipo POST para guardar un pokémon
     | *Más información sobre axios https://github.com/axios/axios
-    | *this.name, Es para obtener el valor del elemento Html enlazado con v-model="name"
-    | *this.picture, Es para obtener el valor del elemento Html enlazado con v-model="picture"
-    | *name: Es para asignar valor a la variable data: name
-    | *picture: Es para asignar valor a la variable data: picture
-    | *console.log(res); Muestra en consola la respuesta
-    | *$('#addPokemon').modal('hide') Esconde el modal si la respuesta es correcta
-    | *console.log(err); Muestra en consola ls errores de la respuesta si es que los hay
     | ----------------------------------------------------------------------------------
   */
   methods: {
@@ -68,6 +62,9 @@ export default {
       .then(function(res){
         console.log(res);
         $('#addPokemon').modal('hide')
+
+        // console.log(res.data.pokemon);
+        EventBus.$emit('pokemon-added', res.data.pokemon)
       })
       .catch(function(err){
         console.log(err);
@@ -86,8 +83,12 @@ export default {
     | -----------------------------------------------------------------------------------------------------------------------------------------
     | *La versión de Bootstrap es la 4.0.0
     |   *https://getbootstrap.com/docs/4.0/getting-started/introduction/
-    | *@submit.prevent="savePokemon" Previene la recarga del navegador y usar la función savePokemon del componente
-    | *v-model="name" Sirve para pasar o enlazar una variable declarada en el Html (En Laravel se usar request) a el componente data:name
-    | *v-model="picture" Sirve para pasar o enlazar una variable declarada en el Html (En Laravel se usar request) a el componente data:picture
+    | *import EventBus from '../event-bus'; Se importa resources\assets\js\event-bus.js
+    | *EventBus.$emit('pokemon-added', res.data.pokemon)
+    |   *EventBus es la instancia de resources\assets\js\event-bus.js
+    |   *$emit Significa emitir un evento
+    |   *'pokemon-added' Nombre del evento (puede ser cualquier nombre)
+    |   *res.data.pokemon La información del nuevo pokémon
+    | *console.log(res.data.pokemon); Mostrar en consola del navegador la información del nuevo pokémon
     | -----------------------------------------------------------------------------------------------------------------------------------------
 */
