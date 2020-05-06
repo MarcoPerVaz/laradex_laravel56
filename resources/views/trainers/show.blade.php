@@ -19,11 +19,17 @@
       {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
   </div>
+
+  <modal-button-create-pokemon></modal-button-create-pokemon>
+  
+  <create-form-pokemon></create-form-pokemon>
+
 @endsection
 
 
 {{-- Notas:
-      | ---------------------------------------------------------------------
-      | *La directiva @include permite incluir una vista dentro de otra vista  
-      | ---------------------------------------------------------------------  
+      | -----------------------------------------------------------------------------------------------------------------------------------------------
+      | *La etiqueta <modal-button-create-pokemon> hace referencia al componente resources\assets\js\components\pokemons\modal-button-createPokemon.vue
+      | *La etiqueta <create-form-pokemon> hace referencia al componente resources\assets\js\components\pokemons\addPokemon.vue
+      | -----------------------------------------------------------------------------------------------------------------------------------------------  
 --}}

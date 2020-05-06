@@ -54,8 +54,19 @@ export default {
     | ----------------------------------------------------------------------------------
   */
   methods: {
+    /* 
+      | -------------------------------------------------------------------------------------------------------
+      | *let currentRoute = window.location.pathname Obtiene la URL y la guarda en la variable let currentRoute
+      | *console.log(currentRoute); Mostrar en consola del navegador la URL
+      | *Se usan `` cuando se quiere usar strings y variables también llamado interpolación de cadenas
+      | -------------------------------------------------------------------------------------------------------
+    */
     savePokemon: function(){
-      axios.post('/pokemons', {
+
+      let currentRoute = window.location.pathname
+      // console.log(currentRoute);
+
+      axios.post(`${currentRoute}/pokemons`, {
         name: this.name,
         picture: this.picture
       })

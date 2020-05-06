@@ -3,6 +3,7 @@
 namespace laradex\Http\Controllers;
 
 use laradex\Pokemon;
+use laradex\Trainer;
 use Illuminate\Http\Request;
 
 class PokemonController extends Controller
@@ -34,9 +35,10 @@ class PokemonController extends Controller
      | -----------------------------------------
      | *Guarda un Pokémon
      | *No olvidar importar use laradex\Pokemon;
+     | *No olvidar importar use laradex\Trainer;
      | -----------------------------------------
     */
-    public function store(Request $request)
+    public function store(Request $request, Trainer $trainer)
     {
         /* 
             | -----------------------------------------------------------------------------------------------------------------------------
@@ -47,13 +49,16 @@ class PokemonController extends Controller
             | *$pokemon->save(); Guarda el pokémon
             | *return response()->json([]) Devuelve una respuesta json con un mensaje y un estado Http de código 200
             | *"pokemon" => $pokemon Envía en formato json toda la instancia del modelo Pokemon
+            | *$pokemon->trainer()->associate($trainer)->save(); Es para asociar el trainer con el pokémon
+            | *$pokemon->save(); Ya no es necesario porque en la línea anterior ya se hace el save()
             | -----------------------------------------------------------------------------------------------------------------------------
         */
         if ($request->ajax()) {
             $pokemon = new Pokemon();
             $pokemon->name = $request->input('name');
             $pokemon->picture = $request->input('picture');
-            $pokemon->save();
+            $pokemon->trainer()->associate($trainer)->save();
+            // $pokemon->save();
 
             return response()->json([
                 "message" => "Pokemon creado correctamente",

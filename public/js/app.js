@@ -50343,7 +50343,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50412,8 +50412,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     | ----------------------------------------------------------------------------------
   */
   methods: {
+    /* 
+      | -------------------------------------------------------------------------------------------------------
+      | *let currentRoute = window.location.pathname Obtiene la URL y la guarda en la variable let currentRoute
+      | *console.log(currentRoute); Mostrar en consola del navegador la URL
+      | *Se usan `` cuando se quiere usar strings y variables también llamado interpolación de cadenas
+      | -------------------------------------------------------------------------------------------------------
+    */
     savePokemon: function savePokemon() {
-      axios.post('/pokemons', {
+
+      var currentRoute = window.location.pathname;
+      // console.log(currentRoute);
+
+      axios.post(currentRoute + '/pokemons', {
         name: this.name,
         picture: this.picture
       }).then(function (res) {
