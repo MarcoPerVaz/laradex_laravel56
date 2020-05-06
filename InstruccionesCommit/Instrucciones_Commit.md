@@ -4,7 +4,9 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Implementando relación de modelos Trainer-Pokémon__
+### Commit | __Listar pokémon's asociados a un trainer__
+
+**Hasta aquí llega el curso*
 <!-- end commit name -->
 ===
 <!-- official documentation -->
@@ -14,13 +16,9 @@
 <!-- commit instructions -->
 #### Instrucciones Commit
 1. Edición de la vista `resources\views\trainers\show.blade.php`
-2. Edición del archivo de rutas `routes\web.php`
-3. Edición del componente `resources\assets\js\components\pokemons\addPokemon.vue`
-4. Edición del controlador `app\Http\Controllers\TrainerController.php`
-   - Edición de la función `store(Request $request)`
-
-   **No olvidar importar use laradex\Trainer;*
-5. Compilar archivos de Javascript
+2. Edición del archivo `routes\web.php`
+3. Edición del componente `resources\assets\js\components\pokemons\listPokemons.vue`
+4. Compilar archivos de Javascript
    > npm run dev
 
    **`npm run dev` compila los archivos cada que se usa el comando*
@@ -28,6 +26,7 @@
    > npm run watch
 
    **`npm run watch` compila los archivos cada que haya cambios de forma automática*
+5. FIN DEL CURSO
 <!-- end commit instructions -->
 ===
 <!-- notes -->
@@ -40,7 +39,7 @@
 #### Información:
 - Más información en `resources\views\trainers\show.blade.php`
 
-- Más información en `app\Http\Controllers\PokemonController.php`
-
 - Más información en `routes\web.php`
+
+- Más información en `resources\assets\js\components\pokemons\listPokemons.vue`
 <!-- end information -->

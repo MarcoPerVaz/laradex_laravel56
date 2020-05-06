@@ -49859,15 +49859,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       _this.pokemons.push(data);
     });
   },
+
+  /* 
+    | -------------------------------------------------------------------------------------------------------
+    | *let currentRoute = window.location.pathname Obtiene la URL y la guarda en la variable let currentRoute
+    | *console.log(currentRoute); Mostrar en consola del navegador la URL
+    | *Se usan `` cuando se quiere usar strings y variables también llamado interpolación de cadenas
+    | *console.log(res); Muestra en consola la respuesta de la petición
+    | -------------------------------------------------------------------------------------------------------
+  */
   mounted: function mounted() {
     var _this2 = this;
 
-    axios.get('/pokemons').then(function (response) {
-<<<<<<< HEAD
-      return _this.pokemons = response.data, _this.loading = false;
-=======
-      return _this2.pokemons = response.data;
->>>>>>> af67692... Comunicación entre componentes - Event Bus
+    var currentRoute = window.location.pathname;
+    axios.get(currentRoute + '/pokemons').then(function (response) {
+      return console.log(response), _this2.pokemons = response.data, _this2.loading = false;
     });
   }
 });

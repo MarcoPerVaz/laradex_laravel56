@@ -24,6 +24,8 @@
   
   <create-form-pokemon></create-form-pokemon>
 
+  <list-of-pokemons></list-of-pokemons>
+
 @endsection
 
 
@@ -31,5 +33,6 @@
       | -----------------------------------------------------------------------------------------------------------------------------------------------
       | *La etiqueta <modal-button-create-pokemon> hace referencia al componente resources\assets\js\components\pokemons\modal-button-createPokemon.vue
       | *La etiqueta <create-form-pokemon> hace referencia al componente resources\assets\js\components\pokemons\addPokemon.vue
+      | *La etiqueta <list-of-pokemons> hace referencia al componente resources\assets\js\components\pokemons\listPokemons.vue
       | -----------------------------------------------------------------------------------------------------------------------------------------------  
 --}}

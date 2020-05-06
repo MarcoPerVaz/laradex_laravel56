@@ -51,9 +51,19 @@ export default {
       this.pokemons.push(data)
     })
   },
+  /* 
+    | -------------------------------------------------------------------------------------------------------
+    | *let currentRoute = window.location.pathname Obtiene la URL y la guarda en la variable let currentRoute
+    | *console.log(currentRoute); Mostrar en consola del navegador la URL
+    | *Se usan `` cuando se quiere usar strings y variables también llamado interpolación de cadenas
+    | *console.log(res); Muestra en consola la respuesta de la petición
+    | -------------------------------------------------------------------------------------------------------
+  */
   mounted() {
-    axios.get('/pokemons').then(response => 
+    let currentRoute = window.location.pathname
+    axios.get(`${currentRoute}/pokemons`).then(response => 
       (
+        console.log(response),
         this.pokemons = response.data,
         this.loading = false
       )

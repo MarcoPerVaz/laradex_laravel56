@@ -23,6 +23,14 @@ Route::resource('trainers', 'TrainerController');
 
 /* 
     | ---------------------------------------------------------------------------------------------------------------------------------------------------------
+    | *Ruta que apunta a '/trainers/{trainer}/pokemons', apunta a la función index(Request $request) del controlador app\Http\Controllers\PokemonController.php
+    | *Ruta que muestra los pokémons asociados al entrenador
+    | ---------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+Route::get('trainers/{trainer}/pokemons', 'PokemonController@index');
+
+/* 
+    | ---------------------------------------------------------------------------------------------------------------------------------------------------------
     | *Ruta que apunta a '/trainers/{trainer}/pokemons', apunta a la función store(Request $request) del controlador app\Http\Controllers\PokemonController.php
     | *Ruta que guarda un pokémon
     | ---------------------------------------------------------------------------------------------------------------------------------------------------------
