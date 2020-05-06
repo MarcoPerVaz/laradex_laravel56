@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import EventBus from '../event-bus';
+import EventBus from '../../event-bus';
 export default {
   data(){
     return {
@@ -71,7 +71,7 @@ export default {
     |   *Etiqueta style: Dónde van los estilos del componente
     | *No es recomendable usar css en el Html pero en esta caso es demostrativo
     | *La propiedad mounted() es para cargar código tan pronto se monte el componente
-    | *import EventBus from '../event-bus'; Se importa resources\assets\js\event-bus.js
+    | *import EventBus from '../../event-bus'; Se importa resources\assets\js\event-bus.js
     | *created() es parte del ciclo de vida de un componente Vue
     |   *Más información en https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram  (IMPORTANTE)
     |   *Más información en https://vuejs.org/v2/api/#created

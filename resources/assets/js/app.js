@@ -15,11 +15,10 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('pokemons-component', require('./components/PokemonsComponent.vue'));
-Vue.component('spinner-component', require('./components/Spinner.vue'));
-Vue.component('add-pokemon-btn', require('./components/AddPokemonComponent.vue'));
-Vue.component('create-form-pokemon', require('./components/CreatePokemonComponent.vue'));
+Vue.component('list-of-pokemons', require('./components/pokemons/listPokemons.vue'));
+Vue.component('spinner-component', require('./components/widgets/Spinner.vue'));
+Vue.component('modal-button-create-pokemon', require('./components/pokemons/modal-button-createPokemon.vue'));
+Vue.component('create-form-pokemon', require('./components/pokemons/addPokemon.vue'));
 
 const app = new Vue({
     el: '#app'
@@ -28,13 +27,13 @@ const app = new Vue({
 
 /* Notas:
     | -----------------------------------------------------------------------------------------------------------------------------------------------
-    | *Vue.component('pokemons-component', require('./components/PokemonsComponent.vue'));
+    | *Vue.component('list-of-pokemons', require('./components/pokemons/listPokemons.vue'));
     |   *Vue es una nueva instancia de vuejs
     |   *component() Es la función que recibe el nombre del componente y su referencia de ruta
-    |   *pokemons-component es el nombre que tenemos que poner en la etiqueta para poder usar el componente <pokemons-component></pokemons-component> 
+    |   *list-of-pokemons es el nombre que tenemos que poner en la etiqueta para poder usar el componente <list-of-pokemons></list-of-pokemons>
     |   *require() Es la función para indicar la ruta del componente
     | *spinner-component Es el componente que tendrá el spinner loader y se mostrará al cargas los pokémon
-    | *add-pokemon-btn Es el componente que incluye un botón para mostrar el formulario de creación de un pokémon
+    | *modal-button-create-pokemon Es el componente que incluye un botón para mostrar el formulario de creación de un pokémon
     | *create-form-pokemon Es el componente para crear un pokémon
     | -----------------------------------------------------------------------------------------------------------------------------------------------
 */

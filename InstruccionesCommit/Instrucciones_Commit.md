@@ -4,7 +4,7 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Comunicación entre componentes - Event Bus__
+### Commit | __Reorganizando componentes__
 <!-- end commit name -->
 ===
 <!-- official documentation -->
@@ -15,12 +15,21 @@
 
 <!-- commit instructions -->
 #### Instrucciones Commit
-1. Edición del controlador `app\Http\Controllers\PokemonController.php`
-   - Edición de la función `store(Request $request)`
-2. Creación y edición del archivo `resources\assets\js\event-bus.js`
-3. Edición del componente `resources\assets\js\components\CreatePokemonComponent.vue`
-4. Edición del componente `resources\assets\js\components\PokemonsComponent.vue`
-5. Compilar archivos de Javascript
+1. Creación del directorio `resources\assets\js\components\pokemons`
+2. Creación del directorio `resources\assets\js\components\widgets`
+3. Mover el componente `resources\assets\js\components\Spinner.vue` a `resources\assets\js\components\widgets\Spinner.vue`
+4. Mover el componente `resources\assets\js\components\CreatePokemonComponent.vue` a `resources\assets\js\components\pokemons\CreatePokemonComponent.vue`
+5. Renombrar del componente `resources\assets\js\components\pokemons\CreatePokemonComponent.vue` por `resources\assets\js\components\pokemons\addPokemon.vue`
+6. Eliminación del componente `resources\assets\js\components\ExampleComponent.vue`
+7. Mover el componente `resources\assets\js\components\PokemonsComponent.vue` a `resources\assets\js\components\pokemons\PokemonsComponent.vue`
+8. Renombrar del componente `resources\assets\js\components\pokemons\PokemonsComponent.vue` por `resources\assets\js\components\pokemons\listPokemons.vue`
+9. Mover el componente `resources\assets\js\components\AddPokemonComponent.vue` a `resources\assets\js\components\pokemons\AddPokemonComponent.vue`
+10. Renombrar el componente `resources\assets\js\components\pokemons\AddPokemonComponent.vue` por `resources\assets\js\components\pokemons\modal-button-createPokemon.vue`
+11. Edición del archivo `resources\assets\js\app.js`
+12. Edición del componente `resources\assets\js\components\pokemons\addPokemon.vue`
+13. Edición del componente `resources\assets\js\components\pokemons\listPokemons.vue`
+14. Edición de la vista `resources\views\pokemons\index.blade.php`
+15. Compilar archivos de Javascript
    > npm run dev
 
    **`npm run dev` compila los archivos cada que se usa el comando*
@@ -39,11 +48,11 @@
 ===
 <!-- information -->
 #### Información:
-- Más información en `app\Http\Controllers\PokemonController.php`
+- Más información en `resources\assets\js\components\pokemons\addPokemon.vue`
 
-- Más información en `resources\assets\js\event-bus.js`
+- Más información en `resources\assets\js\components\pokemons\listPokemons.vue`
 
-- Más información en `resources\assets\js\components\CreatePokemonComponent.vue`
+- Más información en `resources\assets\js\app.js`
 
-- Más información en `resources\assets\js\components\PokemonsComponent.vue`
+- Más información en `resources\views\pokemons\index.blade.php`
 <!-- end information -->

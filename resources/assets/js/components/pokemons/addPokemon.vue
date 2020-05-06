@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import EventBus from '../event-bus';
+import EventBus from '../../event-bus';
 export default {
   data(){
     return {
@@ -83,7 +83,7 @@ export default {
     | -----------------------------------------------------------------------------------------------------------------------------------------
     | *La versión de Bootstrap es la 4.0.0
     |   *https://getbootstrap.com/docs/4.0/getting-started/introduction/
-    | *import EventBus from '../event-bus'; Se importa resources\assets\js\event-bus.js
+    | *import EventBus from '../../event-bus'; Se importa resources\assets\js\event-bus.js
     | *EventBus.$emit('pokemon-added', res.data.pokemon)
     |   *EventBus es la instancia de resources\assets\js\event-bus.js
     |   *$emit Significa emitir un evento
