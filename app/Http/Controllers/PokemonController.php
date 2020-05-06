@@ -2,6 +2,7 @@
 
 namespace laradex\Http\Controllers;
 
+use laradex\Pokemon;
 use Illuminate\Http\Request;
 
 class PokemonController extends Controller
@@ -18,23 +19,22 @@ class PokemonController extends Controller
             | *if ($request->ajax()) Validar que solo se reciba una respuesta ajax
             | *return response()->json() Dcevuelve una respuesta en formato JSON
             |   *Esta respuesta json es enviada al componente resources\assets\js\components\PokemonsComponent.vue en data: pokemons[]
+            | *Muestra los pokémon almacenados en la base de datos
             | ------------------------------------------------------------------------------------------------------------------------
         */
         if ($request->ajax()) {
-            return response()->json([
-                ['id' => 1, 'name' => 'Pikachu'],
-                ['id' => 2, 'name' => 'Squirtle'],
-                ['id' => 3, 'name' => 'Charizard'],
-            ]);
+           $pokemons = Pokemon::all();
+           return response()->json($pokemons, 200);
         }
 
         return view('pokemons.index');
     }
 
     /* 
-     | ------------------
+     | -----------------------------------------
      | *Guarda un Pokémon
-     | ------------------
+     | *No olvidar importar use laradex\Pokemon;
+     | -----------------------------------------
     */
     public function store(Request $request)
     {

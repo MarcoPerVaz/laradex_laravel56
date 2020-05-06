@@ -1,10 +1,11 @@
 
 /* Notas:
-    | ---------------
+    | -------------------------------------------------------------------------------------------------------------
     | *v-for="pokemon in pokemons" Es un recorrido de un array que viene del código de vue data(): pokemons: []
     | *pokemon.name Es para mostrar el nombre del pokémon usando la propiedad name del array pokemons del foreach y 
     |  del array en vue en la propiedad data: pokemons[]
-    | ---------------
+    | *v-bind:src="pokemon.picture" Obtiene el nombre de la imagen para mostrarla 
+    | -------------------------------------------------------------------------------------------------------------
 */
 <template>
   <div class="row">
@@ -16,7 +17,7 @@
     <div class="col-sm" v-for="pokemon in pokemons" :key="pokemon.id">
       <div class="card text-center" style="width: 18rem; margin-top:70px;">
         <img style="height:100px; width:100px; background-color:#efefef; margin:20px;" class="card-img-top rounded-circle mx-auto d-block" 
-        src="images/" alt="">
+         v-bind:src="pokemon.picture">
         <div class="card-body">
           <h5 class="card-title">{{ pokemon.name }}</h5>
           <p class="card-text">PokémonDescription</p>

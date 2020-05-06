@@ -4,7 +4,7 @@
 <!-- end title -->
 
 <!-- commit name -->
-### Commit | __Componente para guardar un pokémon__
+### Commit | __Guardar un pokémon y mostrar todos los pokemons__
 <!-- end commit name -->
 ===
 <!-- official documentation -->
@@ -15,13 +15,13 @@
 
 <!-- commit instructions -->
 #### Instrucciones Commit
-1. Creación y edición del componente `resources\assets\js\components\AddPokemonComponent.vue`
-2. Creación y edición del componente `resources\assets\js\components\CreatePokemonComponent.vue`
-3. Edición del archivo `resources\assets\js\app.js`
+1. Edición del componente `resources\assets\js\components\CreatePokemonComponent.vue`
+2. Edición del controlador `app\Http\Controllers\PokemonController.php`
+   - Edición de la función `index(Request $request)`
 
-   **Se registran los componentes nuevos*
-4. Edición de la vista `resources\views\pokemons\index.blade.php`
-5. Compilar archivos de Javascript
+     **No olvidar importar use `laradex\Pokemon;`*
+3. Edición del componente `resources\assets\js\components\PokemonsComponent.vue`
+4. Compilar archivos de Javascript
    > npm run dev
 
    **`npm run dev` compila los archivos cada que se usa el comando*
@@ -40,11 +40,7 @@
 ===
 <!-- information -->
 #### Información:
-- Más información en `resources\assets\js\components\AddPokemonComponent.vue`
-
-- Más información en `resources\assets\js\app.js`
-
-- Más información en `resources\views\pokemons\index.blade.phps`
-
 - Más información en `resources\assets\js\components\CreatePokemonComponent.vue`
+
+- Más información en `app\Http\Controllers\PokemonController.php`
 <!-- end information -->
