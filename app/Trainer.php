@@ -25,4 +25,21 @@ class Trainer extends Model
     {
         return 'slug';
     }
+
+    /* 
+        | --------------------------------------------------------------------
+        | *Relación Uno a Muchos (hasMany) - Un trainer tiene muchos pokémon's
+        | --------------------------------------------------------------------
+    */
+    public function pokemons()
+    {
+        return $this->hasMany('laradex\Pokemon');
+    }
 }
+
+
+/* Notas:
+    | ----------------------------------------------------------------------------------------------------------
+    | *Más información sobre la relación hasMany https://laravel.com/docs/5.6/eloquent-relationships#one-to-many
+    | ----------------------------------------------------------------------------------------------------------
+*/
